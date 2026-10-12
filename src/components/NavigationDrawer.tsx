@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, FolderOpen, ChevronDown, MapPin, Instagram } from 'lucide-react';
+import { X, FolderOpen, ChevronDown, MapPin, Instagram, MessageCircle } from 'lucide-react';
 
 interface NavigationDrawerProps {
   isOpen: boolean;
@@ -12,6 +12,7 @@ interface NavigationDrawerProps {
   onOpenGallery: () => void;
   isClientSubMenuOpen: boolean;
   setIsClientSubMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  onReplayReveal?: () => void;
 }
 
 export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
@@ -24,6 +25,7 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
   onOpenGallery,
   isClientSubMenuOpen,
   setIsClientSubMenuOpen,
+  onReplayReveal,
 }) => {
   return (
     <AnimatePresence>
@@ -150,6 +152,22 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
               </div>
             </div>
 
+            {/* Optional Replay Reveal trigger */}
+            {onReplayReveal && (
+              <div className="pt-4 pb-2">
+                <button
+                  onClick={() => {
+                    onClose();
+                    onReplayReveal();
+                  }}
+                  className="text-left text-[11px] font-sans-modern uppercase tracking-[0.22em] text-black/50 hover:text-[#C5A059] transition-colors flex items-center gap-2 cursor-pointer group"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-black/40 group-hover:bg-[#C5A059] transition-colors" />
+                  <span>Replay Editorial Intro</span>
+                </button>
+              </div>
+            )}
+
             {/* Drawer Footer */}
             <div className="pt-6 border-t border-black/10 flex items-center justify-between mt-auto">
               <div className="flex items-center gap-2 text-[10px] sm:text-xs font-sans-modern tracking-[0.22em] uppercase text-black/75">
@@ -157,15 +175,26 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
                 <span>PRETORIA · WORLDWIDE</span>
               </div>
 
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="p-1.5 text-black hover:text-[#C5A059] transition-colors cursor-pointer shrink-0"
-              >
-                <Instagram className="w-4 h-4 sm:w-5 sm:h-5 stroke-[1.5]" />
-              </a>
+              <div className="flex items-center gap-2">
+                <a
+                  href="https://wa.me/27618668899?text=hi%20KAALVOET%2C%20keen%20on%20doing%20a%20shoot"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="WhatsApp"
+                  className="p-1.5 text-black hover:text-[#C5A059] transition-colors cursor-pointer shrink-0"
+                >
+                  <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 stroke-[1.5]" />
+                </a>
+                <a
+                  href="https://www.instagram.com/thekaalvoetphotographer/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="p-1.5 text-black hover:text-[#C5A059] transition-colors cursor-pointer shrink-0"
+                >
+                  <Instagram className="w-4 h-4 sm:w-5 sm:h-5 stroke-[1.5]" />
+                </a>
+              </div>
             </div>
           </motion.div>
         </motion.div>

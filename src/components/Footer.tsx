@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Facebook, Instagram, Copy, Check } from 'lucide-react';
+import { MapPin, Facebook, Instagram, MessageCircle, Copy, Check } from 'lucide-react';
 
 interface FooterProps {
   emailCopied: boolean;
@@ -49,7 +49,7 @@ export const Footer: React.FC<FooterProps> = ({ emailCopied, onCopyEmail }) => {
               <Facebook className="w-4 h-4" />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/thekaalvoetphotographer/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white transition-colors p-0.5"
@@ -57,6 +57,16 @@ export const Footer: React.FC<FooterProps> = ({ emailCopied, onCopyEmail }) => {
               title="Instagram"
             >
               <Instagram className="w-4 h-4" />
+            </a>
+            <a
+              href="https://wa.me/27618668899?text=hi%20KAALVOET%2C%20keen%20on%20doing%20a%20shoot"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors p-0.5"
+              aria-label="WhatsApp"
+              title="WhatsApp"
+            >
+              <MessageCircle className="w-4 h-4" />
             </a>
           </div>
         </div>

@@ -203,24 +203,26 @@ export const Hero: React.FC<HeroProps> = ({
         </div>
 
         {/* =========================================================
-            FAR RIGHT MARGIN: VERTICAL TYPOGRAPHY (Behance / Instagram)
+            FAR RIGHT MARGIN: VERTICAL TYPOGRAPHY (Instagram / Whatsapp)
         ========================================================= */}
         <div className="hidden xl:flex flex-col items-center justify-center gap-10 absolute -right-10 top-1/2 -translate-y-1/2 select-none text-[13px] font-sans-modern font-normal text-black">
           <a
-            href="https://behance.net"
+            href="https://www.instagram.com/thekaalvoetphotographer/"
             target="_blank"
             rel="noopener noreferrer"
             className="[writing-mode:vertical-rl] hover:text-[#C5A059] transition-colors cursor-pointer tracking-wide"
-          >
-            Behance
-          </a>
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="[writing-mode:vertical-rl] hover:text-[#C5A059] transition-colors cursor-pointer tracking-wide"
+            title="Instagram"
           >
             Instagram
+          </a>
+          <a
+            href="https://wa.me/27618668899?text=hi%20KAALVOET%2C%20keen%20on%20doing%20a%20shoot"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="[writing-mode:vertical-rl] hover:text-[#C5A059] transition-colors cursor-pointer tracking-wide"
+            title="WhatsApp"
+          >
+            Whatsapp
           </a>
         </div>
       </div>

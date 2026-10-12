@@ -8,6 +8,7 @@ import { Hero } from './components/Hero';
 import { Collection } from './components/Collection';
 import { Footer } from './components/Footer';
 import { NavigationDrawer } from './components/NavigationDrawer';
+import { Preloader } from './components/Preloader';
 
 import { LightboxModal } from './components/modals/LightboxModal';
 import { ContactModal } from './components/modals/ContactModal';
@@ -18,6 +19,7 @@ import { LegalModal } from './components/modals/LegalModal';
 import { TemporaryFeatureModal } from './components/modals/TemporaryFeatureModal';
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [pairIndex, setPairIndex] = useState(0);
   const [, setSwapCount] = useState(0);
   const [isFlashing, setIsFlashing] = useState(false);
@@ -101,6 +103,7 @@ export default function App() {
   // Automated presentation loop
   useEffect(() => {
     if (
+      isLoading ||
       isLightboxOpen ||
       isContactOpen ||
       isMenuOpen ||
@@ -128,6 +131,7 @@ export default function App() {
       }
     };
   }, [
+    isLoading,
     isLightboxOpen,
     isContactOpen,
     isMenuOpen,
@@ -143,6 +147,7 @@ export default function App() {
   // Keyboard navigation & accessibility
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (isLoading) return;
       if (
         (e.key === 'ArrowRight' || e.key === 'ArrowLeft' || e.key === ' ') &&
         !isLightboxOpen &&
@@ -170,6 +175,7 @@ export default function App() {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [
+    isLoading,
     isLightboxOpen,
     isContactOpen,
     isMenuOpen,
@@ -199,6 +205,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white text-black flex flex-col justify-between selection:bg-black selection:text-[#C5A059] relative overflow-x-hidden">
+      {/* Full-screen Cinematic Pre-loader */}
+      {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
+
       {/* Minimalist Header */}
       <Header
         onOpenEnquire={() => setFeatureModalName('Enquire')}
@@ -243,6 +252,7 @@ export default function App() {
         onOpenGallery={() => setFeatureModalName('Gallery')}
         isClientSubMenuOpen={isClientSubMenuOpen}
         setIsClientSubMenuOpen={setIsClientSubMenuOpen}
+        onReplayReveal={() => setIsLoading(true)}
       />
 
       {/* Modals */}
