@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5E4BE" />
+      <stop offset="25%" stop-color="#DFC283" />
+      <stop offset="55%" stop-color="#C5A059" />
+      <stop offset="85%" stop-color="#9C7938" />
+      <stop offset="100%" stop-color="#C5A059" />
+    </linearGradient>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141414" />
+      <stop offset="100%" stop-color="#070707" />
+    </linearGradient>
+    <filter id="soft-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Dark Editorial Canvas with rounded corners -->
+  <rect width="512" height="512" rx="100" fill="url(#bg-grad)" />
+
+  <!-- Subtle gold hairline frame -->
+  <rect x="24" y="24" width="464" height="464" rx="84" fill="none" stroke="url(#gold-grad)" stroke-width="2" stroke-opacity="0.3" />
+
+  <!-- Monogram Letter "K" -->
+  <g filter="url(#soft-shadow)">
+    <!-- Vertical Serif Stem -->
+    <!-- Head serif -->
+    <path d="M 124 130 C 146 130 162 133 166 148 L 166 364 C 162 379 146 382 124 382 L 124 394 L 236 394 L 236 382 C 214 382 198 379 194 364 L 194 148 C 198 133 214 130 236 130 L 236 118 L 124 118 Z" fill="url(#gold-grad)"/>
+
+    <!-- Upper diagonal serif arm with graceful curve -->
+    <path d="M 194 266 L 314 148 C 304 136 290 132 272 130 L 272 118 L 374 118 L 374 130 C 354 132 344 140 330 154 L 236 248 L 334 358 C 348 374 362 380 384 382 L 384 394 L 268 394 L 268 382 C 286 380 292 374 282 362 L 208 278 L 194 292 Z" fill="url(#gold-grad)"/>
+
+    <!-- Refined middle connector bracket -->
+    <path d="M 194 246 C 204 246 220 252 230 262 L 214 278 C 206 270 198 266 194 266 Z" fill="url(#gold-grad)" opacity="0.95"/>
+  </g>
+</svg>

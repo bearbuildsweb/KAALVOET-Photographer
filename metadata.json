@@ -1,0 +1,8 @@
+{
+  "name": "KAALVOET photographer",
+  "description": "award-winning photographer with a distinctive style and a passion for capturing authentic, soulful moments.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
